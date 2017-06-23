@@ -36,4 +36,4 @@ gnu-efi (3.0.2)
 gnu-efi-devel (3.0.2)
 Packages are downloaded and installed from standard CentOS repositories using yum package manager.
 
-7. Build logs are attached (build_shim.log).
+7. Build logs are attached (build_shim.log). To be crystal clear, I don't have build logs for building shimx64.efi that has been sent to Microsoft (simply because at that time we weren't aware of SHIM Review Board and its requiremenets). These build logs have been captured later.
