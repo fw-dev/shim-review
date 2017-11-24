@@ -1,5 +1,3 @@
-According to procedure description: https://pjones.fedorapeople.org/shim-signing-procedure.html.
-
 1. What's your organization?
 FileWave. Company website is located here: https://www.filewave.com/.
 
@@ -24,11 +22,11 @@ Unfortunately we don't know any reasonably known individuals in the Linux commun
 
 3. Shim prepared in the form required by Microsoft - CAB archive signed with FileWave's EV certificate, archive consists of single file which is shimx64.efi (build using steps from point 6). Public key certficate of our EV certificate and trust anchor are attached (filewave_ev_chain.p7b).
 
-4. Submitted shim is just stock version of shim 12 downloaded from here: https://github.com/rhboot/shim/releases/tag/12 (to be exact from here: https://github.com/rhinstaller/shim/archive/12.tar.gz).
+4. Submitted shim is just stock version of shim 12 downloaded from here: https://github.com/rhboot/shim/releases/tag/12 (to be exact from here: https://github.com/rhinstaller/shim/archive/12.tar.gz). Honestly speaking I completely missed your remark from few months ago to use different GitHub download link to get source code (the one which includes commit file) until I already tested everything and sent to Microsoft. Since I didn't want to start everything from scratch I just made sure that both links (the one I used this time, and the one you provided) are returning exactly the same code.
 
 5. No patches have been applied.
 
-6. Build was done on CentOS 7.3.1611. Build can reproduced using attached script (build_shim.sh, public key certificate embedded into shim: filewave_secure_boot_public_der.crt).
+6. Build was done on CentOS 7.3.1611. Build can reproduced using attached script (build_shim.sh, public key certificate embedded into shim: filewave_ev_public_der.cer).
 Specific versions for dependencies:
 gcc (4.8.5)
 binutils (2.25.1)
@@ -36,4 +34,9 @@ gnu-efi (3.0.2)
 gnu-efi-devel (3.0.2)
 Packages are downloaded and installed from standard CentOS repositories using yum package manager.
 
-7. Build logs are attached (build_shim.log). To be crystal clear, I don't have build logs for building shimx64.efi that has been sent to Microsoft (simply because at that time we weren't aware of SHIM Review Board and its requiremenets). These build logs have been captured later.
+For grub and kernel we're using branches you suggested us to use - these include Secure Boot patches.
+https://github.com/rhboot/grub2/tree/grub-2.02-sb
+https://github.com/vathpela/linux/tree/linux-4.7.2-sb
+
+
+7. Build logs are attached (build_shim.log).
